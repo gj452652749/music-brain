@@ -103,7 +103,8 @@ public class SpectrogramPanel extends JComponent implements ComponentListener{
              int pixelY = frequencyToBin(i * 44100 / (amplitudes.length * 8));
              //第i个分量的亮度值，作桶化处理
              pixeledAmplitudes[pixelY] += amplitudes[i];
-             pitchList.add(new SoundInfo(i,amplitudes[i]));
+             if(i>100 && i<1800)
+            	 pitchList.add(new SoundInfo(i,amplitudes[i]));
              //防止为负
              maxAmplitude = Math.max(pixeledAmplitudes[pixelY], maxAmplitude);
          }

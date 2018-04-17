@@ -152,8 +152,14 @@ public class Spectrogram extends JFrame implements PitchDetectionHandler {
 			final int numberOfSamples = bufferSize;
 			line.open(format, numberOfSamples);
 			line.start();
-			final AudioInputStream stream = new AudioInputStream(line);
-
+			//final AudioInputStream stream = new AudioInputStream(line);
+			AudioInputStream stream = null;
+			try {
+				stream = AudioSystem.getAudioInputStream(new File("C:\\workplace\\study\\ai\\audio\\a.wav"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			JVMAudioInputStream audioStream = new JVMAudioInputStream(stream);
 			// create a new dispatcher
 			dispatcher = new AudioDispatcher(audioStream, bufferSize,
