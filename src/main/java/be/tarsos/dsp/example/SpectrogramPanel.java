@@ -30,8 +30,15 @@ import java.awt.Graphics2D;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import javax.swing.JComponent;
+
+import org.gj.sound.SoundBean;
+import org.gj.sound.SoundInfo;
 
 import be.tarsos.dsp.util.PitchConverter;
 import be.tarsos.dsp.util.fft.FFT;
@@ -89,29 +96,38 @@ public class SpectrogramPanel extends JComponent implements ComponentListener{
 		//for every pixel calculate an amplitude
 		float[] pixeledAmplitudes = new float[getHeight()];
 		//iterate the lage arrray and map to pixels
-		//
+		List<SoundInfo> pitchList=new ArrayList<>();
 		 for (int i = amplitudes.length/800; i < amplitudes.length; i++) {
 			 //此为连续转离散公式https://dsp.stackexchange.com/questions/26927/what-is-a-frequency-bin
+			 //映射到坐标轴(50-190)，相当于桶化
              int pixelY = frequencyToBin(i * 44100 / (amplitudes.length * 8));
-             //第i个分量的亮度值
+             //第i个分量的亮度值，作桶化处理
              pixeledAmplitudes[pixelY] += amplitudes[i];
+             pitchList.add(new SoundInfo(i,amplitudes[i]));
              //防止为负
              maxAmplitude = Math.max(pixeledAmplitudes[pixelY], maxAmplitude);
          }
-		 
 		 //draw the pixels 
 		 for (int i = 0; i < pixeledAmplitudes.length; i++) {
     		 Color color = Color.black;
-             if (maxAmplitude != 0) {
-            	  
+    		 //幅度转亮度
+             if (maxAmplitude != 0) {          	  
             	 final int greyValue = (int) (Math.log1p(pixeledAmplitudes[i] / maxAmplitude) / Math.log1p(1.0000001) * 255);
              	 color = new Color(greyValue, greyValue, greyValue);
+             	 if(i==0)
+             		color = new Color(255, 255, 255);
+             	 //此处i为bin，为了将fre转成图像显示
+            	 //pitchList.add(new SoundInfo(i,greyValue));
              }
+             //笔触颜色亮度
              bufferedGraphics.setColor(color);
         	 bufferedGraphics.fillRect(position, i, 3, 1);
          }
-	
-		 
+		Collections.sort(pitchList);
+		for(int i=0;i<=10;i++) {
+			System.out.print(pitchList.get(i).getPitch()+":"+pitchList.get(i).getAmplitude()+"	");
+		}
+		System.out.println();
 		if (pitch != -1) {
 			  //pitch离散化
               int pitchIndex = frequencyToBin(pitch);
@@ -125,7 +141,11 @@ public class SpectrogramPanel extends JComponent implements ComponentListener{
 		bufferedGraphics.clearRect(0,0, 190,30);
         bufferedGraphics.setColor(Color.WHITE);
         bufferedGraphics.drawString(currentPitch, 20, 20);
-        
+        //画刻度
+        for(int i = 0 ; i < 100; i += 10){
+        	int bin = frequencyToBin(i);
+			bufferedGraphics.drawLine(0, bin, 5, bin);
+		}
         for(int i = 100 ; i < 500; i += 100){
         	int bin = frequencyToBin(i);
 			bufferedGraphics.drawLine(0, bin, 5, bin);
