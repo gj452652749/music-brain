@@ -128,6 +128,7 @@ public class SpectrogramPanel extends JComponent implements ComponentListener{
 		for(int i=0;i<=10;i++) {
 			System.out.print(pitchList.get(i).getPitch()+":"+pitchList.get(i).getAmplitude()+"	");
 		}
+		//训练模式 OR 测试模式
 		System.out.println();
 		if (pitch != -1) {
 			  //pitch离散化

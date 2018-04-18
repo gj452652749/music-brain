@@ -1,0 +1,69 @@
+2018-04-18 11:33:57.725 INFO  (main) [   ] c.g.a.Application Starting Application on LAPTOP-LNDNIH22 with PID 15280 (C:\workplace\java\project\demo\music-brain\target\classes started by gaojun in C:\workplace\java\project\demo\music-brain)
+2018-04-18 11:33:57.728 INFO  (main) [   ] c.g.a.Application No active profile set, falling back to default profiles: default
+2018-04-18 11:33:57.787 INFO  (main) [   ] o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@28ac3dc3: startup date [Wed Apr 18 11:33:57 CST 2018]; root of context hierarchy
+2018-04-18 11:33:58.297 INFO  (background-preinit) [   ] o.h.v.i.u.Version HV000001: Hibernate Validator 5.3.4.Final
+2018-04-18 11:33:59.325 INFO  (main) [   ] o.s.b.c.e.t.TomcatEmbeddedServletContainer Tomcat initialized with port(s): 8080 (http)
+2018-04-18 11:33:59.636 INFO  (localhost-startStop-1) [   ] o.s.w.c.ContextLoader Root WebApplicationContext: initialization completed in 1852 ms
+2018-04-18 11:33:59.900 INFO  (localhost-startStop-1) [   ] o.s.b.w.s.ServletRegistrationBean Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-18 11:33:59.906 INFO  (localhost-startStop-1) [   ] o.s.b.w.s.FilterRegistrationBean Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-18 11:33:59.907 INFO  (localhost-startStop-1) [   ] o.s.b.w.s.FilterRegistrationBean Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-18 11:33:59.907 INFO  (localhost-startStop-1) [   ] o.s.b.w.s.FilterRegistrationBean Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-18 11:33:59.907 INFO  (localhost-startStop-1) [   ] o.s.b.w.s.FilterRegistrationBean Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-18 11:34:00.259 INFO  (main) [   ] o.s.w.s.m.m.a.RequestMappingHandlerAdapter Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@28ac3dc3: startup date [Wed Apr 18 11:33:57 CST 2018]; root of context hierarchy
+2018-04-18 11:34:00.353 INFO  (main) [   ] o.s.w.s.m.m.a.RequestMappingHandlerMapping Mapped "{[/brain/netMode],methods=[POST]}" onto public void com.gj.app.web.AppController.incById(int)
+2018-04-18 11:34:00.360 INFO  (main) [   ] o.s.w.s.m.m.a.RequestMappingHandlerMapping Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-18 11:34:00.363 INFO  (main) [   ] o.s.w.s.m.m.a.RequestMappingHandlerMapping Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-18 11:34:00.430 INFO  (main) [   ] o.s.w.s.h.SimpleUrlHandlerMapping Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-18 11:34:00.430 INFO  (main) [   ] o.s.w.s.h.SimpleUrlHandlerMapping Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-18 11:34:00.494 INFO  (main) [   ] o.s.w.s.h.SimpleUrlHandlerMapping Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-18 11:34:00.649 INFO  (main) [   ] o.s.j.e.a.AnnotationMBeanExporter Registering beans for JMX exposure on startup
+2018-04-18 11:34:00.718 INFO  (main) [   ] o.s.b.c.e.t.TomcatEmbeddedServletContainer Tomcat started on port(s): 8080 (http)
+2018-04-18 11:34:00.723 INFO  (main) [   ] c.g.a.Application Started Application in 3.31 seconds (JVM running for 3.83)
+2018-04-18 11:35:38.890 INFO  (http-nio-8080-exec-1) [   ] o.s.w.s.DispatcherServlet FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-18 11:35:38.913 INFO  (http-nio-8080-exec-1) [   ] o.s.w.s.DispatcherServlet FrameworkServlet 'dispatcherServlet': initialization completed in 23 ms
+2018-04-18 11:37:41.470 INFO  (main) [   ] c.g.a.Application Starting Application on LAPTOP-LNDNIH22 with PID 2704 (C:\workplace\java\project\demo\music-brain\target\classes started by gaojun in C:\workplace\java\project\demo\music-brain)
+2018-04-18 11:37:41.472 INFO  (main) [   ] c.g.a.Application No active profile set, falling back to default profiles: default
+2018-04-18 11:37:41.541 INFO  (main) [   ] o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@28ac3dc3: startup date [Wed Apr 18 11:37:41 CST 2018]; root of context hierarchy
+2018-04-18 11:37:42.084 INFO  (background-preinit) [   ] o.h.v.i.u.Version HV000001: Hibernate Validator 5.3.4.Final
+2018-04-18 11:37:43.250 INFO  (main) [   ] o.s.b.c.e.t.TomcatEmbeddedServletContainer Tomcat initialized with port(s): 8080 (http)
+2018-04-18 11:37:43.406 INFO  (localhost-startStop-1) [   ] o.s.w.c.ContextLoader Root WebApplicationContext: initialization completed in 1868 ms
+2018-04-18 11:37:43.653 INFO  (localhost-startStop-1) [   ] o.s.b.w.s.ServletRegistrationBean Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-18 11:37:43.658 INFO  (localhost-startStop-1) [   ] o.s.b.w.s.FilterRegistrationBean Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-18 11:37:43.658 INFO  (localhost-startStop-1) [   ] o.s.b.w.s.FilterRegistrationBean Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-18 11:37:43.658 INFO  (localhost-startStop-1) [   ] o.s.b.w.s.FilterRegistrationBean Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-18 11:37:43.659 INFO  (localhost-startStop-1) [   ] o.s.b.w.s.FilterRegistrationBean Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-18 11:37:44.071 INFO  (main) [   ] o.s.w.s.m.m.a.RequestMappingHandlerAdapter Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@28ac3dc3: startup date [Wed Apr 18 11:37:41 CST 2018]; root of context hierarchy
+2018-04-18 11:37:44.222 INFO  (main) [   ] o.s.w.s.m.m.a.RequestMappingHandlerMapping Mapped "{[/brain/netMode/{mode}],methods=[POST]}" onto public void com.gj.app.web.AppController.incById(int)
+2018-04-18 11:37:44.230 INFO  (main) [   ] o.s.w.s.m.m.a.RequestMappingHandlerMapping Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-18 11:37:44.230 INFO  (main) [   ] o.s.w.s.m.m.a.RequestMappingHandlerMapping Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-18 11:37:44.331 INFO  (main) [   ] o.s.w.s.h.SimpleUrlHandlerMapping Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-18 11:37:44.332 INFO  (main) [   ] o.s.w.s.h.SimpleUrlHandlerMapping Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-18 11:37:44.407 INFO  (main) [   ] o.s.w.s.h.SimpleUrlHandlerMapping Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-18 11:37:44.726 INFO  (main) [   ] o.s.j.e.a.AnnotationMBeanExporter Registering beans for JMX exposure on startup
+2018-04-18 11:37:44.816 INFO  (main) [   ] o.s.b.c.e.t.TomcatEmbeddedServletContainer Tomcat started on port(s): 8080 (http)
+2018-04-18 11:37:44.821 INFO  (main) [   ] c.g.a.Application Started Application in 3.594 seconds (JVM running for 4.003)
+2018-04-18 11:38:19.621 INFO  (http-nio-8080-exec-2) [   ] o.s.w.s.DispatcherServlet FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-18 11:38:19.646 INFO  (http-nio-8080-exec-2) [   ] o.s.w.s.DispatcherServlet FrameworkServlet 'dispatcherServlet': initialization completed in 24 ms
+2018-04-18 11:38:45.076 INFO  (main) [   ] c.g.a.Application Starting Application on LAPTOP-LNDNIH22 with PID 12080 (C:\workplace\java\project\demo\music-brain\target\classes started by gaojun in C:\workplace\java\project\demo\music-brain)
+2018-04-18 11:38:45.078 INFO  (main) [   ] c.g.a.Application No active profile set, falling back to default profiles: default
+2018-04-18 11:38:45.145 INFO  (main) [   ] o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@28ac3dc3: startup date [Wed Apr 18 11:38:45 CST 2018]; root of context hierarchy
+2018-04-18 11:38:45.638 INFO  (background-preinit) [   ] o.h.v.i.u.Version HV000001: Hibernate Validator 5.3.4.Final
+2018-04-18 11:38:46.994 INFO  (main) [   ] o.s.b.c.e.t.TomcatEmbeddedServletContainer Tomcat initialized with port(s): 8080 (http)
+2018-04-18 11:38:47.161 INFO  (localhost-startStop-1) [   ] o.s.w.c.ContextLoader Root WebApplicationContext: initialization completed in 2018 ms
+2018-04-18 11:38:47.402 INFO  (localhost-startStop-1) [   ] o.s.b.w.s.ServletRegistrationBean Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-18 11:38:47.407 INFO  (localhost-startStop-1) [   ] o.s.b.w.s.FilterRegistrationBean Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-18 11:38:47.408 INFO  (localhost-startStop-1) [   ] o.s.b.w.s.FilterRegistrationBean Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-18 11:38:47.408 INFO  (localhost-startStop-1) [   ] o.s.b.w.s.FilterRegistrationBean Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-18 11:38:47.408 INFO  (localhost-startStop-1) [   ] o.s.b.w.s.FilterRegistrationBean Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-18 11:38:47.867 INFO  (main) [   ] o.s.w.s.m.m.a.RequestMappingHandlerAdapter Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@28ac3dc3: startup date [Wed Apr 18 11:38:45 CST 2018]; root of context hierarchy
+2018-04-18 11:38:47.957 INFO  (main) [   ] o.s.w.s.m.m.a.RequestMappingHandlerMapping Mapped "{[/brain/netMode/{mode}],methods=[POST]}" onto public void com.gj.app.web.AppController.incById(int)
+2018-04-18 11:38:47.962 INFO  (main) [   ] o.s.w.s.m.m.a.RequestMappingHandlerMapping Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-18 11:38:47.962 INFO  (main) [   ] o.s.w.s.m.m.a.RequestMappingHandlerMapping Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-18 11:38:47.998 INFO  (main) [   ] o.s.w.s.h.SimpleUrlHandlerMapping Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-18 11:38:47.998 INFO  (main) [   ] o.s.w.s.h.SimpleUrlHandlerMapping Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-18 11:38:48.075 INFO  (main) [   ] o.s.w.s.h.SimpleUrlHandlerMapping Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-18 11:38:48.248 INFO  (main) [   ] o.s.j.e.a.AnnotationMBeanExporter Registering beans for JMX exposure on startup
+2018-04-18 11:38:48.313 INFO  (main) [   ] o.s.b.c.e.t.TomcatEmbeddedServletContainer Tomcat started on port(s): 8080 (http)
+2018-04-18 11:38:48.317 INFO  (main) [   ] c.g.a.Application Started Application in 3.493 seconds (JVM running for 4.014)
+2018-04-18 11:38:56.852 INFO  (http-nio-8080-exec-2) [   ] o.s.w.s.DispatcherServlet FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-18 11:38:56.869 INFO  (http-nio-8080-exec-2) [   ] o.s.w.s.DispatcherServlet FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms

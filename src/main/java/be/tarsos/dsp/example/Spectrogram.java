@@ -198,6 +198,7 @@ public class Spectrogram extends JFrame implements PitchDetectionHandler {
 
 		@Override
 		public boolean process(AudioEvent audioEvent) {
+			//此处获取音频采样数据，可见WaveViewer
 			float[] audioFloatBuffer = audioEvent.getFloatBuffer();
 			float[] transformbuffer = new float[bufferSize*2];
 			System.arraycopy(audioFloatBuffer, 0, transformbuffer, 0, audioFloatBuffer.length); 
