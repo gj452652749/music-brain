@@ -29,13 +29,14 @@ public class SpectrogramDao {
 	// 1 train、2 test、3 initing
 	volatile int netMode = 3;
 	volatile char pitch = 'a';
+	boolean isReverberating=false;
 	private AudioDispatcher dispatcher;
 	private float sampleRate = 44100;
 	private int bufferSize = 1024 * 4;
 	private int overlap = 768 * 4;
 	float MIN_AMPLITUDE = 0.5f;
 	int PITCH_NUM = 8;
-	double[] bucket = new double[170];
+	double[] inputBucket = new double[170];
 	int step = 10;
 	DataSet dataSet= new DataSet(170, 8);
 	private void init() throws LineUnavailableException, UnsupportedAudioFileException {
@@ -134,7 +135,7 @@ public class SpectrogramDao {
 				if (i > 100 && i < 1800) {
 					pitchList.add(new SoundInfo(i, amplitudes[i]));
 					//映射到桶
-					bucket[i / 10] += amplitudes[i];
+					inputBucket[i / 10] += amplitudes[i];
 				}
 			}
 			Collections.sort(pitchList);
@@ -156,13 +157,29 @@ public class SpectrogramDao {
 			fft.modulus(transformbuffer, amplitudes);
 			List<SoundInfo> pitchList = parseSignal();
 			if (isStepSignalDetected(pitchList)) {
+				isReverberating=true;
 				// 训练模式 or 测试模式
 				switch (netMode) {
 				case 1:
-					//train(null);
+					addTrainRow(inputBucket,pitch);
 					break;
 				case 2:
-					//test(null);
+					addTestRow(inputBucket,pitch);
+					break;
+				default:
+					break;
+				}
+			}
+			//如果余音结束
+			else if(isReverberating) {
+				//标志结束
+				isReverberating=false;
+				switch (netMode) {
+				case 1:
+					net.train(dataSet);
+					break;
+				case 2:
+					net.test(dataSet);
 					break;
 				default:
 					break;

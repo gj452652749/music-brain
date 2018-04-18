@@ -2,6 +2,7 @@ package org.gj.app.net;
 
 import java.util.Arrays;
 
+import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.data.DataSet;
 import org.neuroph.core.data.DataSetRow;
 import org.neuroph.core.events.LearningEvent;
@@ -16,6 +17,8 @@ public class BackPropagationNet {
 	public void init() {
 		// create MultiLayerPerceptron neural network
 		neuralNet = new MultiLayerPerceptron(170, 16, 8);
+		//从配置文件启动
+		//neuralNet = (MultiLayerPerceptron) NeuralNetwork.createFromFile("irisNet.nnet");
 		// create training set from file
 		dataSet = new DataSet(170, 8);
 		// train the network with training set
@@ -30,7 +33,11 @@ public class BackPropagationNet {
 		return dataSet;
 	}
 
-	public void train() {
+	public void setDataSet(DataSet dataSet) {
+		this.dataSet = dataSet;
+	}
+
+	public void train(DataSet trainSet) {
 		neuralNet.learn(dataSet);
 		neuralNet.save("irisNet.nnet");
 		System.out.println("Done training.");
