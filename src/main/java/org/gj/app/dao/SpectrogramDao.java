@@ -43,7 +43,7 @@ public class SpectrogramDao {
 	final static int INPUT_DIM = 170;
 	//窗口大小为20帧，从检测到阶跃信号开始，取20帧
 	final static int WINDOWS_SIZE=20;
-	double[] inputBucket = new double[INPUT_DIM];
+	ThreadLocal<Integer> frameCount=new ThreadLocal<>();
 	int step = 10;
 	DataSet dataSet = new DataSet(INPUT_DIM, 8);
 
@@ -141,7 +141,6 @@ public class SpectrogramDao {
 	}
 
 	AudioProcessor fftProcessor = new AudioProcessor() {
-		ThreadLocal<Integer> frameCount=new ThreadLocal<>();
 
 		FFT fft = new FFT(bufferSize);
 		float[] amplitudes = new float[bufferSize / 2];
@@ -159,7 +158,7 @@ public class SpectrogramDao {
 			return false;
 		}
 
-		public List<SoundInfo> parseSignal() {
+		public List<SoundInfo> parseSignal(double[] inputBucket) {
 			List<SoundInfo> pitchList = new ArrayList<>();
 			for (int i = amplitudes.length / 800; i < amplitudes.length; i++) {
 				if (i > 100 && i < INPUT_DIM * 10) {
@@ -183,7 +182,7 @@ public class SpectrogramDao {
 			BufferedWriter out=null;
 			try {
 				out = new BufferedWriter(new FileWriter("C:\\workplace\\study\\ai\\ir\\a.csv"));
-				out.append(dataSet.toCSV());
+				out.write(dataSet.toCSV());
 				out.newLine();
 				//close会flush
 				out.close();
@@ -195,13 +194,16 @@ public class SpectrogramDao {
 
 		@Override
 		public boolean process(AudioEvent audioEvent) {
+			double[] inputBucket = new double[INPUT_DIM];
+			if(null==frameCount.get())
+				frameCount.set(0);
 			// 此处获取音频采样数据，可见WaveViewer
 			float[] audioFloatBuffer = audioEvent.getFloatBuffer();
 			float[] transformbuffer = new float[bufferSize * 2];
 			System.arraycopy(audioFloatBuffer, 0, transformbuffer, 0, audioFloatBuffer.length);
 			fft.forwardTransform(transformbuffer);
 			fft.modulus(transformbuffer, amplitudes);
-			List<SoundInfo> pitchList = parseSignal();
+			List<SoundInfo> pitchList = parseSignal(inputBucket);
 			// 阶跃信号检测到
 			if (isStepSignalDetected(pitchList)) {
 				frameCount.set(frameCount.get()+1);
@@ -218,10 +220,9 @@ public class SpectrogramDao {
 					break;
 				}
 			}
-			// 如果余音结束
-			else if (isReverberating) {
-				// 标志结束
-				isReverberating = false;
+			// 如果音频帧满足窗口大小，则开始识别
+			if (frameCount.get()==WINDOWS_SIZE) {
+				frameCount.set(0);
 				switch (netMode) {
 				case 1:
 					System.out.println("余音结束，开始训练！");
